@@ -1,0 +1,60 @@
+
+{
+  "name": "OPEN-WA Easy API",
+  "description": "A simple way to convert your WA account to an API. Open the URL at the path `/api-docs/`.",
+  "repository": "https://github.com/open-wa/wa-automate-nodejs",
+  "logo": "https://raw.githubusercontent.com/open-wa/wa-automate-nodejs/master/resources/hotfix-logo.png",
+  "success_url": "/api-docs/",
+  "stack": "container",
+  "website": "https://docs.openwa.dev/",
+  "env": {
+    "WA_SESSION_DATA": {
+      "description": "The Base64 encoded string of the session.data.json file. This heroku app is designed to be stateless so you no session details survive a redployment. Run `npx @open-wa/wa-automate --disable-spins -o` to generate a session.data.json file.",
+      "required": true
+    },
+    "API_KEY": {
+      "description": "The api key which will be used to authenticate requests to your API. If you do not set this manually it will be generated and available to see in the logs. You can grab a secure key from https://randomkeygen.com/",
+      "required": false
+    },
+    "WA_KEEP_ALIVE": {
+      "description": "If this is `true` then the system will essentially click 'Use Here' when a session gets switched to another computer. If left to true then this will stop you from being able to use the session anywhere else untill this dyno is switched off.",
+      "required": false,
+      "value":"false"
+    },
+    "WA_WEBHOOK": {
+      "description": "The webhook address where you want to send all events to. If you don't want to set a webhook, leave this as false.",
+      "required": false,
+      "value":"false"
+    },
+    "WA_KEEP_UPDATED": {
+      "description": "When true, this will make sure your wa-automate version is updated if it is out of date without the need to redeploy the whole app.",
+      "required": false,
+      "value":"false"
+    },
+    "WA_EV": {
+      "description": "Send launch events to this URL.",
+      "required": false,
+      "value":"false"
+    },
+    "WA_LICENSE_KEY": {
+      "description": "You can unlock features with a license key. If you have one, enter it here. Learn more: https://docs.openwa.dev/pages/The%20Client/licensed-features.html",
+      "required": false
+    },
+    "WA_SOCKET": {
+      "description": "Set this to true to enable socket mode",
+      "required": false,
+      "value":""
+    },
+    "WA_DEBUG": {
+      "description": "Enable debug logs on launch",
+      "required": false,
+      "value":"true"
+    },
+    "WA_BOT_PRESS_URL": {
+      "description": "The Botpress URL that ends with your bot id. Example: http://botpress.url/api/v1/bots/cool-bot",
+      "required": false,
+      "value":""
+    }
+  },
+  "keywords": ["node", "express", "static", "wa", "automate", "bot", "whatsapp", "open-wa", "api"]
+}

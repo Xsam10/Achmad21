@@ -1,0 +1,5 @@
+build: 
+  docker:
+    web: Dockerfile.heroku
+run:
+  web: node ./node_modules/@open-wa/wa-automate/bin/server.js --use-chrome  --in-docker --qr-timeout 0 --popup
